@@ -1,6 +1,7 @@
 #include <stdio.h>  // getline
 #include <stdlib.h> // exit
 #include <string.h> // strtok
+#include <time.h>
 #include <unistd.h> // execvp
 
 #define MAX_ARGS 256
@@ -26,9 +27,28 @@ void parse_command_from_user() {
 }
 
 int main() {
-  printf("> ");
-  parse_command_from_user();
-  execvp(args[0], args);
+  while (1) {
+    printf("> ");
+    fflush(stdout);
+    parse_command_from_user();
+
+    if (args[0] == NULL) { // If no command, continue to next iteration
+      continue;
+    }
+
+    int id = fork();
+    if (id < 0) {
+      perror("fork failed");
+      exit(1);
+    }
+
+    if (id == 0) { // Child process
+      execvp(args[0], args);
+      exit(1);
+    } else {      // Parent process
+      wait(NULL); // Wait for the child process to finish
+    }
+  }
 
   return 0;
 }
