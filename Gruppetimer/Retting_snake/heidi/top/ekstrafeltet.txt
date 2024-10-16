@@ -1,0 +1,20 @@
+Lab 5 - hekvi0374
+
+Endringer jeg har gjort i Snake utover "hovedfeltet":
+
+Laget startskjerm
+- med instruksjoner for start
+- du kan velge vanskelighetsgrad
+- du kan trykke for å få opp regler og litt info (og komme tilbake til start)
+
+Gjort spillbrettet større og gjort det enklere å endre størrelse.
+
+Lagt til mulighet for å pause spillet og fortsette.
+
+Endret på gameover-skjermen
+- viser hvor mange poeng du fikk (per eple * vanskelighetsgrad)
+- gitt mulighet for å starte på nytt.
+
+Fikset litt på utseende i alle skjermbilder.
+
+Skrevet om koden for skjermene slik at teksten flyttes når du endrer størrelse på spillet.

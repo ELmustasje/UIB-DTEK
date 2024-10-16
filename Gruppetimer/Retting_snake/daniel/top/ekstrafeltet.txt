@@ -1,0 +1,15 @@
+Forbedringer:
+
+Fin velkomst skjerm med kontroll tutorial, gamemode info, brettsstørrelse valg
+Importerer bilde av slange som jeg roterer istedenfor farge
+importerer bilde av eple
+annen bakgrunn og outline
+kan ikke gi i motsatt retning og tape
+lagt til ulike brett størrelser
+lagt til to moduser: raskere, og funksjonalitet for å krympe over tid med flere epler som man må spise for å holde seg i live
+countdown før spillet starter
+teller epler for å tracke score
+teller tid i survival for å tracke score
+pause mulighet
+restart med valgte brett og modus innstilling automatisk
+mulighet til å gå helt tilbake

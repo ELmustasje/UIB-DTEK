@@ -1,0 +1,28 @@
+Fargen til eplet er endret til rødt.
+
+Fargen til slangen er endret til grønt.
+
+Spillet resettes ved trykk på mellomrom eller enter.
+
+mellomrom flytter ikke slangen når infomode er av.
+
+Slangen kan nesten bite seg selv.
+    I funksjonen 'is_legal_move' sjekker jeg om den nye posisjonen til slangens hode er større enn 1 (framfor 0) grunnet at slangens hale vil også flytte seg ut av ruten samtidig som slangens hode flytter seg inn i ruten.
+
+Du kan ikke flytte hodet til nakken.
+For å endre slangens retning må du velge en retning 90 grader på slangens nåværende retning.
+Slangens retning legges i kø etter hverandre dersom du trykker fortere enn slangen beveger seg. Dette hindre at 
+
+Hastighet
+    Hastigheten er en omvent proporsjonal funksjon. Det går raskere og raskrere, men endringen er mindre og mindre.
+
+Poengscore
+    Poengscore øker med lengden av slangen hver gang slangen flytter på seg.
+    Poengscoren øker ikke i info_mode.
+    Poengscore slettes om du er i info_mode.
+
+Scoreboard
+    Du kommer highscoren din lagres kun dersom du spille på vanskelig modus (hard)
+
+Startskjerm
+    Kan velge mellom Lett og vanskelig

@@ -1,0 +1,31 @@
+Hei!
+Her er mine egne endringer på programet snake som gjør det bedre/finere.
+
+1. La til en start meny som vises før selve programmet, 
+dette har jeg ordnet med if statment og en ny verdi app.start_game.
+2. La til en slutt skjerm hvor relevant info kommer/kan komme opp. (La til teksten "Game Over")
+3. La til nye farger for slange, brett og eple
+4. La til en ny verdi Score, her teller spillet antall epler som blir spist.
+Denne score verdien kommer opp både under veis i spillet på bunnen av skjermen, 
+og den totale verdien til Score vises til slutt på slutt skjermen. 
+5. Fikset sånn at piltaster kun kan brukes når spillet er i gang,
+samme med knappen (Space) den funker kun når info_mode er skrudd på. 
+6. Laget en knapp i slutt skjermen (m) trykker man her kommer man tilbake til hoved meny
+Itilleg blir alle verdier til slangen satt tilbake til start når verdien (state) blir satt til 'gameover',
+og score blir endret til 0 når spiller trykker på (m) knappen.
+7. La til 3 forskjellige hastighets moduser 'Slow', 'Fast', 'Ultra Fast'. Står i Hoved meny hvordan de blir skrudd på.
+Videre står det også hvilken modus du er på i Slutt skjermen og Hoved menyen.
+8. La til 3 brett størrelser 'Small', 'Bigger', 'Massive'. Disse kan velges i hovedmeny.
+Det står også i GameOver sultt skjermen.
+9. Nå er det muligt og pause spillet med knappen (p). Når spillet er i pause modus kommer det opp en,
+pause skjerm. Spillet er også auto pauset i starten før spillet starter.
+10. Restart knapp har blitt lagt til, (r). 
+Kan trykke på denne i slutt skjermen for og starte spillet på nytt med akk samme hastighet og brett størrelse som i forrige "Game".
+11. Fikset en feil hvor teksten ikke stemte overens med skjremens størrelse.
+12. Fikset sånn at man ikke kan trykke i motsatt rettning av hvor man er på vei og krasje inn i seg selv.
+13. Har lagt til en belønning for og spille vanskeligere moduser altså en multi som øker hver eple fangst med mer en bare 1 poeng.
+Spiller ser også hvor stor denne multien er på og ser alikevell på sluttskjerm hvor mange epler spiller fanget under spillet.
+14. Fikset opp i start menyen, ser litt bedre ut.
+15. La til en HighScore side, her kan den ene personen med høyest score skrive sitt navn.
+16. Highscore teller som kunn teller når scoren er over den forrige highscoren.
+17. Det er bare mulig og skrive inn navn på highscore tavlen om man har høyere score en highscoren.
