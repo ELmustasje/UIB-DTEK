@@ -5,7 +5,7 @@ def can_be_made_of_letters(word, letters):
     wrong = 0
 
     for i in word:
-        if not i in letters:
+        if i not in letters:
             wrong += 1
         else:
             letters.remove(i)

@@ -1,0 +1,52 @@
+Del 1 - Kommando free -h output:
+               total        used        free      shared  buff/cache   available
+Mem:           3,8Gi       383Mi       3,4Gi        10Mi        94Mi       3,3Gi
+Swap:          2,0Gi       433Mi       1,6Gi
+
+Maksimum allokering i én malloc før det feiler:
+Allocated 1.00GB successfully
+Allocated 2.00GB successfully
+Allocated 3.00GB successfully
+Allocated 4.00GB successfully
+Allocated 5.00GB successfully
+Failed to allocate 6.00GB
+
+Begrunnelse:
+Vi observerte at vi kunne allokere opp til 5GB minne i én operasjon før malloc returnerte NULL på 6GB. Dette stemmer overens med tilgjengelig fysisk minne (3,4GB free + 3,3GB available) og en del av swap (1,6GB free), som vist i free -h output. Linux-systemet som virtualiserer minnet kombinerer tilgjengelig fysisk minne og swap for å tillate 5GB allokering i én gang, men kunne ikke støtte 6GB på grunn av begrensningene i tilgjengelige ressurser.
+
+Del 2 - Flere kall til malloc:
+Allokerings størrelse per kall: 216006656 bytes 
+Total allokert minne: 14152972107776 bytes (13180.98 GB)
+
+Begrunnelse:
+Selv om den totale allokeringen var ekstremt stor, fortsetter systemet å allokere minne fordi de individuelle allokeringene er små nok til å fordele seg over de tilgjengelige fysiske minne- og swap-ressursene. Linux-systemet, som virtualiserer minnet, bruker en overcommit memory-politikk som tillater større total allokering enn fysisk tilgjengelig minne, med antakelsen om at ikke alt allokert minne vil bli brukt (skrevet til). Dette kan forklare hvordan vi kunne allokere en enorm mengde minne over mange kall til malloc.
+
+Del 3 - Skriving til allokert minne:
+Antall suksessfulle skrivinger før krasj:
+written to 0.20 GB
+written to 0.40 GB
+written to 0.60 GB
+written to 0.80 GB
+written to 1.01 GB
+written to 1.21 GB
+written to 1.41 GB
+written to 1.61 GB
+written to 1.81 GB
+written to 2.01 GB
+written to 2.21 GB
+written to 2.41 GB
+written to 2.62 GB
+written to 2.82 GB
+written to 3.02 GB
+written to 3.22 GB
+written to 3.42 GB
+written to 3.62 GB
+written to 3.82 GB
+written to 4.02 GB
+written to 4.22 GB
+written to 4.43 GB
+written to 4.63 GB
+written to 4.83 GB
+
+Begrunnelse:
+Mens små biter av minne kunne allokeres uten problemer, førte skrivning til disse adressene til faktisk minnebruk som overskred systemets tilgjengelige ressurser (kombinasjonen av fysisk minne og swap). Linux-systemet som virtualiserer minnet tillater overcommit, som betyr at den totale minneallokeringen kan overskride den faktiske tilgjengelige minne og swap. Når vi skriver data til de allokerte minneområdene, øker den aktive minnebruken og systemet når til slutt sin grense på grunn av de faktiske begrensningene i fysisk minne og swap, hvilket fører til at programmet blir killed av Linux-terminalen. Denne forskjellen mellom allokering og faktisk skriving viser begrensningene til systemets overcommit memory-politikk, hvor for mye allokert men ubrukt minne kan krasje systemet når det faktisk blir brukt.

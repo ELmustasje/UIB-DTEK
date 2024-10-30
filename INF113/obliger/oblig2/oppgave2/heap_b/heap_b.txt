@@ -1,0 +1,66 @@
+### Initial `pmap` Output (før skriving til minnet):
+Address           Kbytes     RSS   Dirty Mode  Mapping
+0000555555554000       4       4       0 r---- a.out
+0000555555555000       4       4       0 r-x-- a.out
+0000555555556000       4       4       0 r---- a.out
+0000555555557000       4       4       4 r---- a.out
+0000555555558000       4       4       4 rw--- a.out
+0000555555559000     132       4       4 rw---   [ anon ]
+00007ffff7800000    2052       4      20 rw---   [ anon ]
+00007ffff7c00000     160     160       0 r---- libc.so.6
+00007ffff7c28000    1620     860       0 r-x-- libc.so.6
+00007ffff7dbd000     352     128       0 r---- libc.so.6
+00007ffff7e15000       4       0       0 ----- libc.so.6
+00007ffff7e16000      16      16      16 r---- libc.so.6
+00007ffff7e1a000       8       8       8 rw--- libc.so.6
+00007ffff7e1c000      52      20      20 rw---   [ anon ]
+00007ffff7fa9000      12       8       8 rw---   [ anon ]
+00007ffff7fbb000       8       4       4 rw---   [ anon ]
+00007ffff7fbd000      16       0       0 r----   [ anon ]
+00007ffff7fc1000       8       4       0 r-x--   [ anon ]
+00007ffff7fc3000       8       8       0 r---- ld-linux-x86-64.so.2
+00007ffff7fc5000     168     168       0 r-x-- ld-linux-x86-64.so.2
+00007ffff7fef000      44      40       0 r---- ld-linux-x86-64.so.2
+00007ffff7ffb000       8       8       8 r---- ld-linux-x86-64.so.2
+00007ffff7ffd000       8       8       8 rw--- ld-linux-x86-64.so.2
+00007ffffffde000     132      12      12 rw---   [ stack ]
+ffffffffff600000       4       0       0 --x--   [ anon ]
+---------------- ------- ------- ------- 
+Som vi ser fra formatet, allokeringen var på 2MB størrelse (dvs. 2048 Kbytes) fordi det registrerte navnet er [ anon ] som betegner heap. RSS viser at bare 4 KB (eller noe tilsvarende) er faktisk mappet til fysisk minne.
+
+### `pmap` Output etter `memset`:
+Address           Kbytes     RSS   Dirty Mode  Mapping
+0000555555554000       4       4       0 r---- a.out
+0000555555555000       4       4       0 r-x-- a.out
+0000555555556000       4       4       0 r---- a.out
+0000555555557000       4       4       4 r---- a.out
+0000555555558000       4       4       4 rw--- a.out
+0000555555559000     132       4       4 rw---   [ anon ]
+00007ffff7800000    2052      20      20 rw---   [ anon ]
+00007ffff7c00000     160     160       0 r---- libc.so.6
+00007ffff7c28000    1620     860       0 r-x-- libc.so.6
+00007ffff7dbd000     352     128       0 r---- libc.so.6
+00007ffff7e15000       4       0       0 ----- libc.so.6
+00007ffff7e16000      16      16      16 r---- libc.so.6
+00007ffff7e1a000       8       8       8 rw--- libc.so.6
+00007ffff7e1c000      52      20      20 rw---   [ anon ]
+00007ffff7fa9000      12       8       8 rw---   [ anon ]
+00007ffff7fbb000       8       4       4 rw---   [ anon ]
+00007ffff7fbd000      16       0       0 r----   [ anon ]
+00007ffff7fc1000       8       4       0 r-x--   [ anon ]
+00007ffff7fc3000       8       8       0 r---- ld-linux-x86-64.so.2
+00007ffff7fc5000     168     168       0 r-x-- ld-linux-x86-64.so.2
+00007ffff7fef000      44      40       0 r---- ld-linux-x86-64.so.2
+00007ffff7ffb000       8       8       8 r---- ld-linux-x86-64.so.2
+00007ffff7ffd000       8       8       8 rw--- ld-linux-x86-64.so.2
+00007ffffffde000     132      12      12 rw---   [ stack ]
+ffffffffff600000       4       0       0 --x--   [ anon ]
+---------------- ------- ------- ------- 
+
+
+I motsetning til før, da hele 2MB ble allokert uten til å øke physical RSS tilsvarende, etter vi skrev til området som tvang allokeringen fysisk, så vi høyere RSS. 
+
+### Page størrelse
+På moderne systemer er siden ofte 4KB eller mer (avhengig av hvordan det er konfigurert), og dette kan bekreftes ved å observere stigningsstørrelsen i RSS etter tildelinger. 
+
+Kort, Når vi ikke skriver på memory allokert først, vi så minimale mapping skjer (f.eks ~4k). Men etter at vi har skrevet til regionen, så vi at RSS stigninger viser på mapping av passende fysisk-to array matchende original allokering size

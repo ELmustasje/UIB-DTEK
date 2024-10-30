@@ -1,0 +1,1 @@
+Ved å flytte en pointer inn i området for å lese minnet 16 bytes før adressen som `malloc` returnerer, ser vi at `malloc` lagrer metadata om allokeringen. Dette inkluderer størrelsen på allokeringen og eventuelle flagg som `malloc` bruker for å administrere minnet. Dette forklarer hvorfor adressen `malloc` gir oss er 16 bytes mer enn hva `pmap` viser.

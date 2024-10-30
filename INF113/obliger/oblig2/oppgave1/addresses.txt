@@ -1,0 +1,32 @@
+Minneadresser og deres betydning:
+=========
+[0x61ecd71ad2c2] [programkode]
+---------
+[0x61ecd71b0018] [global]
+---------
+[0x61ecd71b0010] [global]
+---------
+[0x61ecd71ae004] [global]
+---------
+[0x780769e00010] [heap]
+---------
+[0x780769e00014] [heap]
+---------
+[0x7ffd0a10e9bc] [stack]
+---------
+[0x7ffd0a10e97c] [stack]
+---------
+[0x7ffd0a10e93c] [stack]
+---------
+
+Adressen 0x61ecd71ad2c2 refererer til en minneadresse hvor programkoden selv er lagret. Dette er en typisk adresse i kode- (eller tekst-) seksjonen av en prosessens adresseområde, som inneholder de kjørbare instruksjonene i programmet.
+
+Disse adressene 0x61ecd71b0018, 0x61ecd71b0010, og 0x61ecd71ae004 refererer til globale variabler eller statiske data i programmet. Dette er data som er tilgjengelige gjennom hele levetiden til programmet og er lagret i data- eller bss-seksjonene av prosessens adresseområde.
+
+Disse adressene 0x780769e00010 og 0x780769e00014 representerer minne på heap-seksjonen, som brukes for dynamisk allokering av minne (som ved bruk av malloc). Dette er typiske adresser hvor heapen starter og vokser etter behov.
+
+Disse adressene 0x7ffd0a10e9bc, 0x7ffd0a10e97c, og 0x7ffd0a10e93c viser til stack-seksjonen av programmet. Stacken brukes for å holde funksjonskall, lokale variabler og kontrollinformasjon. Disse adressene viser typiske posisjoner på stacken brukt av funksjoner eller lokaler variabler på et bestemt tidspunkt under programkjøring.
+
+
+Oppsummering:
+Dette programmet forsøker å allokere store mengder minne i flere operasjoner og skrive til det for å utforske grensene for Linux-systemets minnehåndteringssystem, inkludert overcommit memory politikk. Programmet ble killed av Linux-terminalen da den aktive minnebruken overskred den fysiske minne- og swap-kombinasjonen tilgjengelig, og viste begrensningene og risikoene ved overcommit memory.
