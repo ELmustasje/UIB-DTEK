@@ -24,8 +24,7 @@ parseExpr tokens =
   let (termAst, remainingTokens) = parseFactor tokens
    in case remainingTokens of
         ("+" : ts) ->
-          let (nextAddend, remainingTokens) = parseExpr ts
-           in (BinOp Add termAst nextAddend, remainingTokens)
+          let (nextAddend, remainingTokens) = parseExpr ts in (BinOp Add termAst nextAddend, remainingTokens)
         ("-" : ts) ->
           let (nextMinuend, remainingTokens) = parseExpr ts
            in (BinOp Sub termAst nextMinuend, remainingTokens)
