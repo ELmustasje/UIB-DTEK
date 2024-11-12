@@ -114,6 +114,7 @@ grep pattern filePath = do
 sed :: String -> (String -> String) -> FilePath -> FilePath -> IO ()
 sed pattern f inputFilePath outputFilePath = do
   -- Åpne inputfilen for lesing
+
   content <- readFile' inputFilePath
   let replacedContent = unlines (map (replaceLine pattern f) (lines content))
   writeFile outputFilePath replacedContent

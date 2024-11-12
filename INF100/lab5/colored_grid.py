@@ -9,12 +9,15 @@ def draw_grid(canvas, x1, y1, x2, y2, colors):
     print(len(colors))
     for i in range(len(colors)):
         for g in range(len(colors[i])):
+            f = "white"
+            if colors[i][g] == 1:
+                f = "black"
             canvas.create_rectangle(
                 x,
                 y,
                 x + diffx / len(colors[i]),
                 y + diffy / len(colors),
-                fill=colors[i][g],
+                fill=f,
             )
             x += diffx / len(colors[i])
         x = x1
