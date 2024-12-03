@@ -1,24 +1,25 @@
+import Data.Char (digitToInt)
+import Data.List (group, sort)
+
 abc :: t -> Int -> t -> [t]
-abc x n y = [x | a <- [1 .. n]] ++ [y]
+abc h c e = [h | x <- [1 .. c]] ++ [e]
 
 tryggIndex :: [t] -> Int -> t -> t
-tryggIndex xs n def
-  | n < length xs = xs !! n
-  | otherwise = def
+tryggIndex xs indx def
+  | indx >= length xs = def
+  | otherwise = xs !! indx
 
 inds :: String -> String -> [Int]
-inds _ "" = []
-inds comp str = aux str comp [] 0
+inds xs element = aux xs 0 []
  where
-  aux str comp inds cind
-    | take (length comp) str == comp = aux (tail str) comp (inds ++ [cind]) (cind + 1)
-    | (length comp) > (length str) = inds
-    | otherwise = aux (tail str) comp inds (cind + 1)
+  aux [] _ arr = arr
+  aux (x : xs) currentIndex arr
+    | take (length element) (x : xs) == element = aux xs (currentIndex + 1) (arr ++ [currentIndex])
+    | otherwise = aux xs (currentIndex + 1) arr
 
-splitToWords :: String -> [String]
-splitToWords str = aux str [] ""
+ordTeller str = aux (group $ sort $ words str)
  where
-  aux (c : str) words cWord
-    | c == " " = aux str (words ++ [cWord]) ""
-    | null (c : str) = words
-    | otherwise = aux str words (cWord ++ c)
+  aux wordList = [(head word, length word) | word <- wordList]
+
+dec :: Int -> String -> Int
+dec base str = foldl (\acc x -> acc * base + read [x]) 0 str
