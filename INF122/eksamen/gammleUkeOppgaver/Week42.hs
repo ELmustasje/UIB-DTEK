@@ -41,10 +41,8 @@ main = do
 
 loop :: IO ()
 loop = do
-  putStr "> "
   command <- getLine
   execute command
-  hFlush stdout
 
 hei :: String -> IO ()
 hei str = putStrLn $ reverse str

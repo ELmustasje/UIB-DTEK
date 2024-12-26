@@ -37,7 +37,8 @@ parseFactor tokens =
         ("*" : ts) ->
           let (nextFactor, restTokens) = parseFactor ts
            in (BinOp Mult termAst nextFactor, restTokens)
-        ("/" : ts) ->
+ L       ("/" : ts) ->
+
           let (nextFactor, restTokens) = parseFactor ts
            in (BinOp Div termAst nextFactor, restTokens)
         _ -> (termAst, remainingTokens)
