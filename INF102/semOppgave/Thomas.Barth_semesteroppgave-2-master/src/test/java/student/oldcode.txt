@@ -1,0 +1,212 @@
+package student;
+
+import graph.Edge;
+import graph.Graph;
+import graph.WeightedGraph;
+
+import java.util.*;
+
+public class ProblemSolver2 implements IProblem {
+
+  //O(n*m*logn)
+  public <V, E extends Comparable<E>> LinkedList<Edge<V>> mst(WeightedGraph<V, E> g) {
+    LinkedList<Edge<V>> solution = new LinkedList<>();// O(1)
+
+    PriorityQueue<Edge<V>> pq = new PriorityQueue<>(g);// O(1)
+
+    V currentNode = g.getFirstNode();//O(1)
+
+    Edge<V> currentEdge;//O(1)
+
+    Set<V> visited = new HashSet<>();// O(1)
+    visited.add(currentNode);//O(1)
+
+    addNewEdgesToQue(pq, g, currentNode, visited);//O(m*logn)
+    while (visited.size() < g.verticesCount()) {//O(n * m * logn)
+      if (pq.isEmpty()) {//O(1)
+        System.out.println("Tree not connected");
+        return solution;
+      } else {
+        currentEdge = pq.poll();//O(logn)
+      }
+
+      if (visited.contains(currentEdge.a) && visited.contains(currentEdge.b)) {// O(1)
+        continue;// O(1)
+      } else {
+        solution.add(currentEdge);// O(1)
+        currentNode = visited.contains(currentEdge.a) ? currentEdge.b : currentEdge.a;// O(1)
+        visited.add(currentNode);// O(1)*
+      }
+      addNewEdgesToQue(pq, g, currentNode, visited);//O(m*logn)
+    }
+    return solution;
+  }
+
+  // O(m*logn)
+  private <V, E extends Comparable<E>> void addNewEdgesToQue(PriorityQueue<Edge<V>> pq, WeightedGraph<V, E> g, V currentNode, Set<V> visited) {
+    for (Edge<V> adjecentEdge : g.adjacentEdges(currentNode)) {
+      if (!visited.contains(adjecentEdge.a) || !visited.contains(adjecentEdge.b)) {
+        pq.add(adjecentEdge);
+      }
+    }
+  }
+
+  @Override
+  public <V> V lca(Graph<V> g, V root, V u, V v) {// O(n)
+    Map<V, V> parentNodes = new HashMap<>();
+    Queue<V> q = new LinkedList<>();
+    Set<V> visited = new HashSet<>();
+    q.add(root);
+    while (!q.isEmpty()) {
+      V node = q.poll();
+      visited.add(node);
+      for (V neighbour : g.neighbours(node)) {
+        if (!visited.contains(neighbour)) {
+          q.add(neighbour);
+          parentNodes.put(neighbour, node);
+        }
+      }
+      if (visited.contains(u) && visited.contains(v)) {
+        break;
+      }
+    }
+    ArrayList<V> pathV = new ArrayList<>();
+    ArrayList<V> pathU = new ArrayList<>();
+
+    V nodeU = u;
+    V nodeV = v;
+
+    while (nodeU != root) {
+      pathU.add(nodeU);
+      nodeU = parentNodes.get(nodeU);
+    }
+    while (nodeV != root) {
+      pathV.add(nodeV);
+      nodeV = parentNodes.get(nodeV);
+    }
+
+    Collections.reverse(pathU);
+    Collections.reverse(pathV);
+
+    if (pathU.isEmpty() || pathV.isEmpty()) {
+      return root;
+    }
+    if (!pathU.get(0).equals(pathV.get(0))) {
+      return root;
+    }
+    if (pathU.size() == 1 || pathV.size() == 1) {
+      return pathU.get(0);
+    }
+
+    int uIndex = 0;
+    int vIndex = 0;
+
+    while (pathV.get(vIndex).equals(pathU.get(uIndex))) {
+      uIndex++;
+      vIndex++;
+      if (pathV.get(vIndex) != pathU.get(uIndex)) {
+        return pathU.get(uIndex - 1);
+      }
+    }
+    return root;
+  }
+
+  //O(n^2 * (m + n))
+  @Override
+  public <V> Edge<V> addRedundant(Graph<V> g, V root) {
+    Map<V,Integer> nodesInSubtree = new HashMap<>();
+    Set<V> visited = new HashSet<>();
+    Map<V,Integer> connectedNodesMemory = new HashMap<>();
+    visited.add(root);
+
+    for(V neighbour : g.neighbours(root)){
+      nodesInSubtree.put(neighbour,searchConnectedNodes(g,neighbour,visited,connectedNodesMemory));
+    }
+    V nodeA;
+    V nodeB = root;
+
+    if(nodesInSubtree.isEmpty()){
+      System.out.println("NO SOLUTION");
+      return null;
+    }
+
+    nodeA = pollFromMap(nodesInSubtree,visited);
+    nodeA = getOptimalVFromSubTree(g,visited,connectedNodesMemory,nodeA);
+    if(!nodesInSubtree.isEmpty()){
+      nodeB = pollFromMap(nodesInSubtree,visited);
+      nodeB = getOptimalVFromSubTree(g,visited,connectedNodesMemory,nodeB);
+    }
+    return new Edge<>(nodeA,nodeB);
+  }
+  //O(n^2)
+  private <V> V getOptimalVFromSubTree(Graph<V> g, Set<V> visited, Map<V, Integer> connectedNodesMemory, V node) {
+    Map<V, Integer> nodesInSubtree = new HashMap<>();
+    while (true) {//O(n)
+      nodesInSubtree.clear();
+      for(V neighbour : g.neighbours(node)){//O(n);
+        if(!visited.contains(neighbour)){
+          int subTreeSize = searchConnectedNodes(g,neighbour,visited,connectedNodesMemory);//O(n)
+          nodesInSubtree.put(neighbour,subTreeSize);
+        }
+      }
+
+      V nextNode = pollFromMap(nodesInSubtree,visited);//O(n)
+
+      if(nextNode == null){
+        return node;
+      }else{
+        node = nextNode;
+      }
+    }
+  }
+
+
+  //O(n)
+  private <V> V pollFromMap(Map<V, Integer> map, Set<V> visited) {
+    V maxNode = null;
+    int maxValue = Integer.MIN_VALUE;
+    for (Map.Entry<V, Integer> entry : map.entrySet()) {
+      if (entry.getValue() > maxValue && !visited.contains(entry.getKey())) {
+        maxNode = entry.getKey();
+        maxValue = entry.getValue();
+      }
+    }
+
+    if (maxNode != null) {
+      visited.add(maxNode);
+      map.remove(maxNode);
+    }
+
+    return maxNode;
+  }
+
+  //O(n)
+  private <V> int searchConnectedNodes(Graph<V> g, V start, Set<V> visited, Map<V, Integer> connectedNodesMemory) {
+    if (connectedNodesMemory.containsKey(start)) {
+      return connectedNodesMemory.get(start);
+    }
+
+    Queue<V> q = new LinkedList<>();
+    q.add(start);
+
+    Set<V> tempVisited = new HashSet<>(visited);
+
+    int count = 0;
+
+    while (!q.isEmpty()) {
+      V node = q.poll();
+      count++;
+
+      for (V n : g.neighbours(node)) {
+        if (!tempVisited.contains(n)) {
+          q.add(n);
+          tempVisited.add(n);
+        }
+      }
+    }
+
+    connectedNodesMemory.put(start, count);
+
+    return count;
+  }
+}
