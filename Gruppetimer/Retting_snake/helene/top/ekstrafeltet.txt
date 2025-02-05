@@ -1,5 +1,0 @@
-Mine forbedringer av spillet snake
-- lagt til flere små, og større visuelle endringer for å gjøre spillet penere
-- lagt til en start side
-- lagt til en gameover side, og mulighet til å starte spillet på nytt,
-- infomrasjonsmodus er ikke startsiden, men forstatt mulig å se ved å trykke på 'i'

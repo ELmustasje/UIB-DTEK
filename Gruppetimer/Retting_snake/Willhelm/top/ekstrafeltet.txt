@@ -1,4 +1,0 @@
-Bakre del av slangen endrer farge desto lenger slangen blir.
-
-Det er lagt til start. Spillet starter automatisk ved å trykke enter. Spillet kan pauses ved å trykke p eller i.
-
