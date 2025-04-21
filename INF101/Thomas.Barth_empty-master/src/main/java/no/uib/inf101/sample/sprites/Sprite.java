@@ -44,16 +44,14 @@ public class Sprite implements ISprite{
             g2.drawImage(drawingImg,x,y,width,heigth,null);
         }
 
-
         drawStats(g2);
-
     }
 
     @Override
     public void setDefaultValues() {
         this.heigth = 400;
         this.width = 150;
-        this.strength =0;
+        this.strength = 0;
         mirrored = false;
         try {
             currentImg = ImageIO.read(new File("res/sprites/spriteDefault.png"));

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/home/thomasbarth/UIB-DTEK/INF112/death-crushers-1000</OriginalElement>
+  <nodes>
+    <node x="1113.5" y="405.0">inf112.game.map.MapFactory</node>
+    <node x="913.5" y="405.0">inf112.game.entity.EntityTest</node>
+    <node x="1152.5" y="225.0">inf112.gfx.Anchor</node>
+    <node x="-102.0" y="1085.0">inf112.game.states.menu.MenuState</node>
+    <node x="1013.5" y="905.0">inf112.game.deck.cards.ShieldCard</node>
+    <node x="-16.0" y="1025.0">inf112.core.state.GameMapState</node>
+    <node x="489.5" y="905.0">inf112.game.components.AttackComponent</node>
+    <node x="927.5" y="485.0">inf112.game.ai.EnemyAI</node>
+    <node x="1072.5" y="165.0">inf112.gfx.Canvas</node>
+    <node x="818.0" y="345.0">inf112.game.entity.EnemyTest</node>
+    <node x="842.0" y="45.0">inf112.Main</node>
+    <node x="1157.0" y="665.0">inf112.game.deck.ACard</node>
+    <node x="782.0" y="-15.0">inf112.utils.Vec2</node>
+    <node x="1027.5" y="345.0">inf112.game.map.GameMap</node>
+    <node x="912.5" y="165.0">inf112.gfx.Sprite</node>
+    <node x="702.0" y="225.0">inf112.core.Core</node>
+    <node x="694.5" y="665.0">inf112.game.deck.cards.StrikeCardTest</node>
+    <node x="622.0" y="-15.0">inf112.core.events.Once</node>
+    <node x="769.5" y="905.0">inf112.game.components.ShieldComponent</node>
+    <node x="52.5" y="665.0">inf112.game.ai.BossAI</node>
+    <node x="723.0" y="405.0">inf112.core.CoreTest</node>
+    <node x="617.0" y="165.0">inf112.utils.Timer</node>
+    <node x="538.0" y="405.0">inf112.utils.TimerTest</node>
+    <node x="779.0" y="545.0">inf112.utils.LocPair</node>
+    <node x="47.5" y="345.0">inf112.game.map.nodes.MapNode</node>
+    <node x="664.0" y="485.0">inf112.game.entity.EnemyFactory</node>
+    <node x="574.5" y="725.0">inf112.game.deck.cards.ShieldCardTest</node>
+    <node x="443.0" y="165.0">inf112.core.events.OnceTest</node>
+    <node x="568.5" y="545.0">inf112.game.entity.EnemyAITest</node>
+    <node x="372.5" y="225.0">inf112.core.Config</node>
+    <node x="433.5" y="345.0">inf112.game.entity.PlayerTest</node>
+    <node x="487.5" y="665.0">inf112.game.entity.AEntity</node>
+    <node x="93.5" y="1085.0">inf112.game.states.ingame.DeathState</node>
+    <node x="464.0" y="485.0">inf112.core.state.StateManager</node>
+    <node x="297.0" y="165.0">inf112.utils.Mouse</node>
+    <node x="338.0" y="405.0">inf112.game.deck.ACardTest</node>
+    <node x="983.0" y="225.0">inf112.game.map.IGameMap</node>
+    <node x="368.5" y="545.0">inf112.game.components.AStatusTest</node>
+    <node x="199.0" y="1025.0">inf112.game.states.settings.SettingsState</node>
+    <node x="343.0" y="1085.0">inf112.game.states.ingame.MapState</node>
+    <node x="238.0" y="345.0">inf112.core.events.WaitGroup</node>
+    <node x="438.0" y="1025.0">inf112.testing.TestState</node>
+    <node x="1038.0" y="725.0">inf112.game.components.Component</node>
+    <node x="203.0" y="225.0">inf112.utils.Keyboard</node>
+    <node x="234.5" y="485.0">inf112.core.events.EventQueueTest</node>
+    <node x="528.5" y="1085.0">inf112.game.states.ingame.CombatState</node>
+    <node x="123.0" y="165.0">inf112.game.map.nodes.NodeType</node>
+    <node x="114.5" y="545.0">inf112.game.entity.EntityPoolTest</node>
+    <node x="407.5" y="725.0">inf112.game.ai.EliteAI</node>
+    <node x="245.0" y="665.0">inf112.game.entity.EnemyFactoryTest</node>
+    <node x="562.0" y="45.0">inf112.game.deck.Deck</node>
+    <node x="1108.5" y="545.0">inf112.utils.BoundingBox</node>
+    <node x="125.0" y="725.0">inf112.utils.AudioManagerTest</node>
+    <node x="43.0" y="225.0">inf112.game.deck.DeckTest</node>
+    <node x="927.5" y="845.0">inf112.game.components.AStatus</node>
+    <node x="-37.0" y="165.0">inf112.utils.Vec2Test</node>
+    <node x="-103.0" y="225.0">inf112.core.events.Event</node>
+    <node x="697.0" y="45.0">inf112.core.ICore</node>
+    <node x="133.5" y="405.0">inf112.core.events.EventQueue</node>
+    <node x="833.5" y="725.0">inf112.game.ai.AttackerAI</node>
+    <node x="610.5" y="845.0">inf112.game.components.AttackComponentTest</node>
+    <node x="943.0" y="665.0">inf112.game.ai.BufferAI</node>
+    <node x="-107.5" y="905.0">inf112.core.state.IState</node>
+    <node x="-23.0" y="845.0">inf112.game.entity.Enemy</node>
+    <node x="628.5" y="1025.0">inf112.game.states.splash.SplashState</node>
+    <node x="511.5" y="-15.0">inf112.utils.UI</node>
+    <node x="417.0" y="45.0">inf112.gfx.Atlas</node>
+    <node x="724.0" y="1085.0">inf112.game.states.ingame.VictoryState</node>
+    <node x="838.0" y="1025.0">inf112.game.states.ExitState</node>
+    <node x="929.5" y="1085.0">inf112.game.states.ingame.ChooseCardState</node>
+    <node x="330.5" y="845.0">inf112.game.components.ShieldComponentTest</node>
+    <node x="48.5" y="905.0">inf112.game.states.ingame.GameManager</node>
+    <node x="523.0" y="225.0">inf112.game.map.nodes.IMapNode</node>
+    <node x="247.5" y="905.0">inf112.game.map.nodes.MapEdge</node>
+    <node x="-1.0" y="485.0">inf112.core.events.WaitGroupTest</node>
+    <node x="-66.5" y="405.0">inf112.game.entity.EntityPool</node>
+    <node x="-116.0" y="545.0">inf112.utils.AudioManager</node>
+    <node x="1068.5" y="1025.0">inf112.game.states.ingame.InGameState</node>
+    <node x="662.0" y="345.0">inf112.game.Game</node>
+    <node x="-110.5" y="725.0">inf112.game.ai.CombatInterface</node>
+    <node x="172.5" y="845.0">inf112.game.entity.Player</node>
+    <node x="1113.5" y="845.0">inf112.game.deck.cards.StrikeCard</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="inf112.game.ai.AttackerAI" target="inf112.game.ai.EnemyAI" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="906.0" y="600.0" />
+      <point x="986.0" y="600.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.deck.cards.ShieldCard" target="inf112.game.deck.ACard" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1086.0" y="820.0" />
+      <point x="1186.0" y="820.0" />
+      <point x="1186.0" y="780.0" />
+      <point x="1206.0" y="780.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.components.ShieldComponent" target="inf112.game.components.Component" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="866.0" y="820.0" />
+      <point x="946.0" y="820.0" />
+      <point x="946.0" y="780.0" />
+      <point x="1106.0" y="780.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.testing.TestState" target="inf112.core.state.IState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="506.0" y="1000.0" />
+      <point x="-34.0" y="1000.0" />
+      <point x="-34.0" y="960.0" />
+      <point x="-54.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.states.settings.SettingsState" target="inf112.core.state.IState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="286.0" y="1000.0" />
+      <point x="-34.0" y="1000.0" />
+      <point x="-34.0" y="960.0" />
+      <point x="-54.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.states.ingame.DeathState" target="inf112.core.state.IState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="166.0" y="1000.0" />
+      <point x="-34.0" y="1000.0" />
+      <point x="-34.0" y="960.0" />
+      <point x="-54.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.states.ExitState" target="inf112.core.state.IState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="906.0" y="1000.0" />
+      <point x="-34.0" y="1000.0" />
+      <point x="-34.0" y="960.0" />
+      <point x="-54.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.entity.Player" target="inf112.game.entity.AEntity" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="226.0" y="780.0" />
+      <point x="546.0" y="780.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.states.splash.SplashState" target="inf112.core.state.IState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="706.0" y="1000.0" />
+      <point x="-34.0" y="1000.0" />
+      <point x="-34.0" y="960.0" />
+      <point x="-54.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.components.AStatus" target="inf112.game.components.Component" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="986.0" y="820.0" />
+      <point x="946.0" y="820.0" />
+      <point x="946.0" y="780.0" />
+      <point x="1106.0" y="780.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.components.AttackComponent" target="inf112.game.components.Component" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="586.0" y="820.0" />
+      <point x="946.0" y="820.0" />
+      <point x="946.0" y="780.0" />
+      <point x="1106.0" y="780.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.states.ingame.InGameState" target="inf112.game.states.ingame.GameManager" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1146.0" y="1000.0" />
+      <point x="1066.0" y="1000.0" />
+      <point x="1066.0" y="960.0" />
+      <point x="126.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.states.ingame.MapState" target="inf112.core.state.IState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="406.0" y="1000.0" />
+      <point x="-34.0" y="1000.0" />
+      <point x="-34.0" y="960.0" />
+      <point x="-54.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.deck.ACard" target="inf112.utils.BoundingBox" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1206.0" y="640.0" />
+      <point x="1186.0" y="640.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.entity.Enemy" target="inf112.game.entity.AEntity" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="26.0" y="820.0" />
+      <point x="226.0" y="820.0" />
+      <point x="226.0" y="780.0" />
+      <point x="546.0" y="780.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.map.nodes.MapNode" target="inf112.game.map.nodes.IMapNode" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="106.0" y="320.0" />
+      <point x="586.0" y="320.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.Game" target="inf112.core.Core" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="706.0" y="320.0" />
+      <point x="746.0" y="320.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.states.ingame.CombatState" target="inf112.core.state.IState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="606.0" y="1000.0" />
+      <point x="-34.0" y="1000.0" />
+      <point x="-34.0" y="960.0" />
+      <point x="-54.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.ai.BufferAI" target="inf112.game.ai.EnemyAI" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1006.0" y="640.0" />
+      <point x="906.0" y="640.0" />
+      <point x="906.0" y="600.0" />
+      <point x="986.0" y="600.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.core.state.GameMapState" target="inf112.core.state.IState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="66.0" y="1000.0" />
+      <point x="-34.0" y="1000.0" />
+      <point x="-34.0" y="960.0" />
+      <point x="-54.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.core.Core" target="inf112.core.ICore" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.states.ingame.ChooseCardState" target="inf112.core.state.IState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1026.0" y="1000.0" />
+      <point x="-34.0" y="1000.0" />
+      <point x="-34.0" y="960.0" />
+      <point x="-54.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.map.GameMap" target="inf112.game.map.IGameMap" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1086.0" y="320.0" />
+      <point x="1046.0" y="320.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.states.ingame.VictoryState" target="inf112.core.state.IState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="806.0" y="1000.0" />
+      <point x="-34.0" y="1000.0" />
+      <point x="-34.0" y="960.0" />
+      <point x="-54.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.ai.BossAI" target="inf112.game.ai.EnemyAI" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="106.0" y="640.0" />
+      <point x="906.0" y="640.0" />
+      <point x="906.0" y="600.0" />
+      <point x="986.0" y="600.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.states.ingame.InGameState" target="inf112.core.state.IState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1146.0" y="1000.0" />
+      <point x="1066.0" y="1000.0" />
+      <point x="1066.0" y="980.0" />
+      <point x="-34.0" y="980.0" />
+      <point x="-34.0" y="960.0" />
+      <point x="-54.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.ai.EliteAI" target="inf112.game.ai.EnemyAI" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="466.0" y="640.0" />
+      <point x="906.0" y="640.0" />
+      <point x="906.0" y="600.0" />
+      <point x="986.0" y="600.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.deck.cards.StrikeCard" target="inf112.game.deck.ACard" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="1186.0" y="780.0" />
+      <point x="1206.0" y="780.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="inf112.game.states.menu.MenuState" target="inf112.core.state.IState" relationship="REALIZATION">
+      <point x="0.0" y="-15.0" />
+      <point x="-34.0" y="960.0" />
+      <point x="-54.0" y="960.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.8304347826086956" showDependencies="false" x="574.0" y="550.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
