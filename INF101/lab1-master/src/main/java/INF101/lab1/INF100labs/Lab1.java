@@ -12,7 +12,14 @@ public class Lab1 {
 
     public static void main(String[] args) {
         // Call the methods here to test them on different inputs
-        task2();
+        int a = 5;
+        foo(a);
+        System.out.println(a);
+
+    }
+
+    public static void foo(int a) {
+        a += 10;
     }
 
     public static void task1() {
