@@ -1,0 +1,5 @@
+<aspectj>
+    <aspects>
+        <aspect name="inf222.aop.CurrencyAspect" />
+    </aspects>
+</aspectj>
