@@ -1,0 +1,71 @@
+﻿Statement
+    : AssignmentStatement
+    | IfStatement
+    | VariableStatement
+    | ObjectStatement
+    | ClassDeclaration
+    ;
+
+ClassDeclaration
+    : 'class' ident
+          { FieldDeclaration }*
+          ConstructorDeclaration
+          { MethodDeclaration }*
+      'end' ['class']?
+    ;
+
+FieldDeclaration
+    : 'field' ident '[' ('public' | 'private') ']' ;
+
+ConstructorDeclaration
+    : 'constructor'
+          'takes' ( 'nothing' | ident (',' ident)* )
+          { AssignmentStatement }*
+      'end constructor'
+    ;
+
+MethodDeclaration
+    : 'method' ident '[' ('public' | 'private') ']'
+          'takes' ( 'nothing' | ident (',' ident)* )
+          { Statement }*
+      'end' ['method']?
+    ;
+
+VariableStatement
+    : 'variable' ident [ '=' Expression ] [ '[constant]' ]
+    | 'variables' ident (',' ident)* [ '[all constants]' ]
+    ;
+
+IfStatement
+    : 'if' Expression
+          'then'
+              { Statement }*
+          'end then'
+          [ 'else'
+              { Statement }*
+            'end else'
+          ]?
+      'end if'
+    ;
+
+ObjectStatement
+    : 'object' ident 'of' ident
+    | 'construct' ident 'pass' Expression (',' Expression)*
+    | 'call method' ident"'"ident 'pass' Expression (',' Expression)*
+    ;
+
+AssignmentStatement
+    : 'my' ident '=' Expression ;
+
+Expression
+    : ident
+    | IntegerLiteral
+    | Expression BinaryOp Expression
+    ;
+
+BinaryOp : '+' | '-' | '*' | '/' | '>' | '<' | '>=' | '<='
+;
+
+IntegerLiteral : // we do not define it explicitly, but rather take it for granted
+;
+
