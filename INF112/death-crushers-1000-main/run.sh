@@ -1,0 +1,1 @@
+mvn exec:java -Dexec.mainClass="inf112.Main"
